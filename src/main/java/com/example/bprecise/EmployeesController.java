@@ -2,15 +2,13 @@ package com.example.bprecise;
 import java.io.Console;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class EmployeesController {
 
-    private List<Employee> empsList = new ArrayList<>();
+    private ArrayList<Employee> empsList = new ArrayList<>();
 
     private void generateEmpsList() {
 
@@ -61,7 +59,7 @@ public class EmployeesController {
 
     @CrossOrigin
     @RequestMapping(value="/getEmployees")
-    public List<Employee> getEmployees() {
+    public ArrayList<Employee> getEmployees() {
         if(empsList.isEmpty()) generateEmpsList();
         return empsList;
     }
@@ -83,9 +81,6 @@ public class EmployeesController {
         employee.addTask(task);
         return task;
     }
-
-   
-
 }
 
 
